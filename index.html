@@ -3,224 +3,394 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Екатерина Согреева — нутрициолог и врач-педиатр</title>
-<meta name="description" content="Екатерина Согреева — нутрициолог и дипломированный врач-педиатр. Доказательный подход, индивидуальный рацион: снижение веса и набор массы, образ жизни и сон, питание беременных, кормящих, пожилых, детей и подростков.">
+<title>Согреева Екатерина — нутрициолог и врач-педиатр</title>
+<meta name="description" content="Согреева Екатерина — нутрициолог и дипломированный врач-педиатр. Доказательный подход, индивидуальный рацион: снижение веса и набор массы, образ жизни и сон, питание беременных, кормящих, пожилых, детей и подростков.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
 <style>
-  * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-  html, body { margin: 0; padding: 0; }
-  body { background: #F3ECD7; font-family: 'Manrope', system-ui, sans-serif; }
-  a { text-decoration: none; }
-  @keyframes floatUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: translateY(0); } }
-  @keyframes driftIn { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: translateY(0); } }
-  @keyframes swayLeaf { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(2.5deg); } }
+/* ============================================================
+   ПАЛИТРА И ШРИФТЫ
+   ============================================================ */
+:root{
+  --bg:#FBF5EA;          /* основной фон */
+  --bg2:#F3E7D2;         /* фон секций «Обо мне» и «Отзывы» */
+  --card:#FFFDF7;        /* карточки */
+  --ink:#2D2A20;         /* основной текст */
+  --muted:#5C5443;       /* приглушённый текст */
+  --muted2:#857A63;      /* подписи */
+  --olive:#6E7F4E;       /* оливковый */
+  --olive-d:#5E7142;     /* тёмный оливковый */
+  --orange:#E2842F;      /* оранжевый акцент / кнопки */
+  --orange-d:#D2742A;    /* курсивные акценты в заголовках */
+  --terra:#C77E2E;       /* надписи-рубрики */
+  --dark:#2D2A20;        /* футер */
+  --serif:'Playfair Display',serif;
+  --quote:'Cormorant Garamond',serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+::selection{background:#F6C969;color:var(--ink);}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
+.frame{position:relative;width:100%;overflow:hidden;}
+
+@keyframes floatA{0%,100%{transform:translateY(0) rotate(var(--r,0deg));}50%{transform:translateY(-18px) rotate(var(--r,0deg));}}
+@keyframes floatB{0%,100%{transform:translateY(0) rotate(var(--r,0deg));}50%{transform:translateY(14px) rotate(var(--r,0deg));}}
+@keyframes sway{0%,100%{transform:rotate(var(--r,0deg));}50%{transform:rotate(calc(var(--r,0deg) + 6deg));}}
+
+/* ============================================================
+   ШАПКА
+   ============================================================ */
+.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px clamp(20px,5vw,72px);backdrop-filter:blur(10px);background:rgba(251,245,234,.72);border-bottom:1px solid rgba(45,42,32,.06);}
+.brand{display:flex;align-items:center;gap:11px;}
+.brand-name{font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:.01em;}
+.leaf-mark{display:inline-block;width:26px;height:15px;border-radius:0 100% 0 100%;background:linear-gradient(140deg,#93A865,#5E7142);transform:rotate(-25deg);flex:none;}
+.menu{display:flex;align-items:center;gap:clamp(14px,2.4vw,34px);font-size:14px;font-weight:500;color:#574E3C;}
+.menu a{white-space:nowrap;}
+.btn-pill{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:100px;background:var(--orange);color:#FFF8EC;font-weight:600;white-space:nowrap;box-shadow:0 8px 20px rgba(210,116,42,.28);}
+
+/* ============================================================
+   ОБЩИЕ СЕКЦИИ
+   ============================================================ */
+.section{position:relative;scroll-margin-top:80px;padding:clamp(56px,7vw,110px) clamp(20px,5vw,72px);}
+.bg2{background:var(--bg2);}
+.wrap{position:relative;max-width:1180px;margin:0 auto;}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--terra);}
+.eyebrow i{width:22px;height:1.5px;background:var(--terra);display:inline-block;}
+.head-center{text-align:center;margin-bottom:clamp(32px,5vw,48px);}
+.head-center .eyebrow{margin-bottom:14px;}
+.sec-title{font-size:clamp(30px,4vw,50px);}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;padding:clamp(48px,7vw,96px) clamp(20px,5vw,72px) clamp(60px,8vw,110px);}
+.hero-wrap{position:relative;max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(36px,5vw,72px);}
+.hero-left{flex:1 1 440px;min-width:300px;position:relative;z-index:3;}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;border-radius:100px;background:var(--card);border:1px solid rgba(45,42,32,.08);box-shadow:0 6px 18px rgba(120,90,50,.06);margin-bottom:26px;font-size:12.5px;font-weight:600;letter-spacing:.04em;color:var(--olive);}
+.badge .leaf-mark{width:18px;height:11px;transform:rotate(-22deg);}
+.hero-title{font-size:clamp(40px,6vw,72px);line-height:1.02;letter-spacing:-.01em;margin-bottom:24px;}
+.ital{font-style:italic;color:var(--orange-d);}
+.hero-lead{max-width:480px;font-size:clamp(16px,1.5vw,18px);line-height:1.6;color:var(--muted);margin-bottom:34px;}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;max-width:560px;}
+.chip{display:flex;flex-direction:column;gap:3px;padding:16px 18px;border-radius:18px;background:var(--card);border:1px solid rgba(45,42,32,.06);box-shadow:0 10px 26px rgba(120,90,50,.06);}
+.chip b{font-family:var(--serif);font-size:17px;font-weight:600;}
+.chip span{font-size:13px;color:var(--muted2);}
+.hero-visual{flex:1 1 360px;min-width:300px;position:relative;display:flex;justify-content:center;align-items:center;min-height:480px;}
+.portrait{position:relative;z-index:2;aspect-ratio:4/5;overflow:hidden;background:#EFE0C4;}
+.portrait img{width:100%;height:100%;object-fit:cover;}
+.portrait-hero{width:min(420px,82%);border-radius:52% 48% 56% 44% / 58% 54% 46% 42%;box-shadow:0 40px 80px rgba(150,110,60,.22),inset 0 0 0 8px rgba(255,253,247,.7);}
+
+/* ============================================================
+   ОБО МНЕ
+   ============================================================ */
+.about-row{position:relative;max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,72px);align-items:center;}
+.about-photo-col{flex:1 1 320px;min-width:280px;position:relative;display:flex;justify-content:center;}
+.portrait-about{width:min(400px,90%);aspect-ratio:5/6;border-radius:44% 56% 50% 50% / 54% 50% 50% 46%;overflow:hidden;background:#E3D4B4;box-shadow:0 36px 70px rgba(150,110,60,.20),inset 0 0 0 8px rgba(251,245,234,.7);}
+.portrait-about img{width:100%;height:100%;object-fit:cover;}
+.about-text{flex:1 1 420px;min-width:300px;}
+.about-text h2{font-size:clamp(30px,4vw,48px);line-height:1.08;margin:18px 0 26px;}
+.about-p{display:flex;flex-direction:column;gap:16px;font-size:16px;line-height:1.65;color:var(--muted);max-width:540px;}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+.tag{padding:9px 16px;border-radius:100px;background:var(--bg);border:1px solid rgba(45,42,32,.08);font-size:13.5px;font-weight:600;color:var(--olive);}
+.tag.terra{color:var(--terra);}
+
+/* ============================================================
+   НАПРАВЛЕНИЯ
+   ============================================================ */
+.dir-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;}
+.dir-card{position:relative;padding:34px 30px 30px;border-radius:26px;background:var(--card);border:1px solid rgba(45,42,32,.06);box-shadow:0 18px 40px rgba(120,90,50,.08);overflow:hidden;}
+.dir-num{font-family:var(--serif);font-size:54px;font-weight:600;color:#F0B968;line-height:1;display:block;margin-bottom:16px;}
+.dir-card h3{font-size:23px;font-weight:600;margin-bottom:12px;}
+.dir-card p{font-size:15px;line-height:1.6;color:#6F6650;margin:0;}
+.special{position:relative;margin-top:22px;padding:clamp(30px,4vw,48px);border-radius:30px;background:linear-gradient(135deg,#E9EBDC,#DEE3C9);overflow:hidden;display:flex;flex-wrap:wrap;align-items:center;gap:28px;}
+.special-text{flex:1 1 360px;min-width:280px;position:relative;z-index:2;}
+.special-tag{display:inline-block;padding:7px 14px;border-radius:100px;background:rgba(255,253,247,.7);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--olive-d);margin-bottom:16px;}
+.special-text h3{font-size:clamp(26px,3.4vw,40px);font-weight:500;margin-bottom:14px;}
+.special-text p{font-size:16px;line-height:1.6;color:#56583F;margin:0;max-width:520px;}
+.special-art{flex:0 0 auto;position:relative;width:200px;height:160px;}
+
+/* ============================================================
+   ОТЗЫВЫ
+   ============================================================ */
+.rev-stage{max-width:980px;margin:0 auto;position:relative;}
+.rev-mask{overflow:hidden;border-radius:30px;}
+.rev-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1);}
+.rev-slide{flex:0 0 100%;padding:clamp(6px,2vw,18px);}
+.rev-card{position:relative;background:var(--card);border:1px solid rgba(45,42,32,.06);border-radius:26px;padding:clamp(30px,4vw,52px);box-shadow:0 22px 50px rgba(120,90,50,.1);text-align:center;overflow:hidden;}
+.stars{color:#F0A93D;font-size:19px;letter-spacing:3px;margin-bottom:20px;}
+.quote{font-family:var(--quote);font-style:italic;font-size:clamp(21px,2.6vw,30px);line-height:1.4;color:#3A352A;margin:0 auto 28px;max-width:640px;}
+.reviewer{display:flex;align-items:center;justify-content:center;gap:14px;}
+.avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(140deg,#F0B968,#E2842F);color:#FFF8EC;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex:none;}
+.reviewer .who{text-align:left;}
+.reviewer .who b{font-weight:700;font-size:15px;}
+.reviewer .who span{font-size:13px;color:var(--muted2);}
+.rev-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:30px;}
+.arrow{width:50px;height:50px;border-radius:50%;border:1px solid rgba(45,42,32,.12);background:var(--card);color:#3A352A;font-size:22px;line-height:1;cursor:pointer;box-shadow:0 8px 20px rgba(120,90,50,.08);display:flex;align-items:center;justify-content:center;}
+.dots{display:flex;align-items:center;gap:9px;}
+
+/* ============================================================
+   ОБРАЩЕНИЕ
+   ============================================================ */
+.cta-box{position:relative;max-width:880px;margin:0 auto;text-align:center;z-index:2;}
+.cta-box h2{font-size:clamp(38px,6vw,68px);line-height:1.04;margin:18px 0 20px;}
+.cta-box p{font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:var(--muted);max-width:560px;margin:0 auto 40px;}
+.cta-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
+.btn-orange{display:inline-flex;align-items:center;gap:12px;padding:17px 26px;border-radius:100px;background:var(--orange);color:#FFF8EC;font-weight:600;font-size:16px;box-shadow:0 14px 30px rgba(210,116,42,.3);transition:transform .2s;}
+.btn-light{display:inline-flex;align-items:center;gap:12px;padding:17px 26px;border-radius:100px;background:var(--card);border:1px solid rgba(45,42,32,.1);color:#3A352A;font-weight:600;font-size:16px;box-shadow:0 10px 24px rgba(120,90,50,.08);transition:transform .2s;}
+.btn-orange:hover,.btn-light:hover{transform:translateY(-2px);}
+.btn-light .arr{font-size:18px;color:var(--terra);}
+.btn-orange .arr{font-size:18px;}
+
+/* ============================================================
+   ФУТЕР
+   ============================================================ */
+.footer{padding:36px clamp(20px,5vw,72px);background:var(--dark);color:#E9DFC9;}
+.footer-inner{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;}
+.footer-inner .brand-name{font-size:20px;}
+.footer-sub{font-size:14px;color:#B6AB8E;letter-spacing:.02em;}
+
+/* ============================================================
+   ДЕКОР: апельсины, листья, мягкие пятна (без текста)
+   ============================================================ */
+.orange{position:absolute;border-radius:50%;background:radial-gradient(circle at 50% 50%,#FCE7B6 0 16%,transparent 16.5%),repeating-conic-gradient(from 7deg at 50% 50%,#FFF6E2 0deg 1.2deg,#F4B05A 1.2deg 28.8deg,#FFF6E2 28.8deg 30deg),#F2A748;box-shadow:inset 0 0 0 4px #E2842F,inset 0 0 0 6px #FBEAC8,0 12px 22px rgba(200,110,40,.2);pointer-events:none;}
+.leaf{position:absolute;border-radius:0 100% 0 100%;background:linear-gradient(140deg,#A6B878,#6E7F4E);pointer-events:none;}
+.amb{position:absolute;border-radius:50%;pointer-events:none;}
+.amb-green{background:radial-gradient(circle,rgba(233,235,220,.9),rgba(251,245,234,0) 70%);}
+.amb-gold{background:radial-gradient(circle,rgba(246,221,160,.45),rgba(251,245,234,0) 70%);}
+/* hero ambient */
+.a-hero-1{top:-80px;right:-60px;width:520px;height:520px;}
+.a-hero-2{left:-120px;bottom:-40px;width:460px;height:460px;}
+/* hero citrus + leaves */
+.o-hero-1{--r:-8deg;z-index:3;top:2%;left:2%;width:96px;height:96px;box-shadow:inset 0 0 0 5px #E2842F,inset 0 0 0 8px #FBEAC8,0 16px 30px rgba(200,110,40,.22);animation:floatA 7s ease-in-out infinite;}
+.o-hero-2{--r:12deg;z-index:3;bottom:6%;left:-2%;width:66px;height:66px;animation:floatB 6s ease-in-out infinite;}
+.o-hero-3{--r:-18deg;z-index:3;top:14%;right:-4%;width:54px;height:54px;animation:floatA 8s ease-in-out infinite;}
+.l-hero-1{z-index:3;bottom:2%;right:8%;width:78px;height:44px;background:linear-gradient(125deg,transparent 48%,rgba(255,255,255,.32) 49.5%,rgba(255,255,255,.32) 50.5%,transparent 52%),linear-gradient(140deg,#93A865,#5E7142);box-shadow:0 12px 22px rgba(78,93,45,.22);transform:rotate(30deg);--r:30deg;animation:sway 7s ease-in-out infinite;}
+.l-hero-2{z-index:1;top:0;right:18%;width:62px;height:36px;box-shadow:0 10px 18px rgba(78,93,45,.18);transform:rotate(-50deg);--r:-50deg;animation:sway 9s ease-in-out infinite;}
+/* about decor */
+.l-about{top:40px;left:5%;width:120px;height:70px;opacity:.18;transform:rotate(-30deg);}
+.o-about{bottom:-14px;right:6%;width:70px;height:70px;box-shadow:inset 0 0 0 4px #E2842F,inset 0 0 0 6px #FBEAC8,0 14px 26px rgba(200,110,40,.2);}
+/* directions decor */
+.o-dir{top:60px;right:4%;width:80px;height:80px;opacity:.5;box-shadow:inset 0 0 0 4px #E2842F,inset 0 0 0 6px #FBEAC8;}
+.card-leaf{bottom:-20px;right:-16px;width:64px;height:38px;opacity:.16;transform:rotate(20deg);}
+.sp-l1{top:20px;left:40px;width:110px;height:62px;background:linear-gradient(140deg,#93A865,#5E7142);box-shadow:0 14px 26px rgba(78,93,45,.2);transform:rotate(-18deg);}
+.sp-l2{top:70px;left:90px;width:90px;height:52px;box-shadow:0 12px 22px rgba(78,93,45,.18);transform:rotate(34deg);}
+.sp-o{top:6px;left:120px;width:60px;height:60px;}
+/* reviews decor */
+.a-rev{top:-40px;left:-40px;width:240px;height:240px;background:radial-gradient(circle,rgba(246,221,160,.5),rgba(243,231,210,0) 70%);}
+.o-rev{top:-26px;right:-22px;width:90px;height:90px;opacity:.4;box-shadow:inset 0 0 0 5px #E2842F,inset 0 0 0 8px #FBEAC8;}
+/* cta decor */
+.cta-fig{position:absolute;height:120%;left:3%;bottom:-10%;opacity:.12;filter:sepia(.3) saturate(.7);mix-blend-mode:multiply;pointer-events:none;z-index:0;}
+.l-cta{top:30px;right:8%;width:96px;height:56px;opacity:.22;transform:rotate(28deg);}
+.o-cta{bottom:40px;right:20%;width:70px;height:70px;opacity:.45;box-shadow:inset 0 0 0 4px #E2842F,inset 0 0 0 6px #FBEAC8;}
+.footer .leaf-mark{width:24px;height:14px;background:linear-gradient(140deg,#A6B878,#6E7F4E);}
 </style>
 </head>
 <body>
 
-<div style="position: relative; max-width: 460px; margin: 0 auto; min-height: 100vh; background: linear-gradient(180deg, #FFFBEF 0%, #FFF5DF 42%, #FFF9EA 74%, #FFFCF4 100%); overflow: hidden; color: #43412F; font-family: 'Manrope', system-ui, sans-serif; box-shadow: 0 0 60px -30px rgba(110,113,72,.5);">
+<div class="frame">
 
-  <!-- ambient leaf shadow — top right -->
-  <div style="position: absolute; top: -40px; right: -80px; width: 320px; height: 500px; opacity: 0.55; mix-blend-mode: multiply; transform: rotate(4deg); transform-origin: top center; animation: swayLeaf 10s ease-in-out infinite; pointer-events: none; z-index: 1;">
-    <img src="leaves.png" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: top right;">
-  </div>
-
-  <!-- top bar -->
-  <header style="position: relative; z-index: 5; display: flex; align-items: center; justify-content: space-between; padding: 22px 24px 6px;">
-    <span style="font-family: 'Cormorant', serif; font-size: 19px; color: #3D3B2A;">Екатерина Согреева</span>
-    <a href="#contact" style="padding: 9px 20px; border-radius: 100px; background: #6E7148; color: #F6F2E4; font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.8px;">связаться</a>
+  <!-- ===== ШАПКА ===== -->
+  <header class="nav">
+    <a href="#top" class="brand">
+      <span class="leaf-mark"></span>
+      <span class="brand-name">Согреева Екатерина</span>
+    </a>
+    <nav class="menu">
+      <a href="#about">Обо мне</a>
+      <a href="#directions">Направления</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contact" class="btn-pill">Записаться</a>
+    </nav>
   </header>
 
-  <!-- HERO -->
-  <section style="position: relative; z-index: 4; padding: 26px 24px 8px;">
-    <div style="position: relative; border-radius: 200px 200px 16px 16px; overflow: hidden; aspect-ratio: 3/4; background: linear-gradient(160deg,#DFDCC8,#D8D4BE); box-shadow: 0 24px 50px -28px rgba(110,113,72,0.55); animation: floatUp 0.9s ease both;">
-      <img src="kateof-2.jpeg" alt="Екатерина Согреева — нутрициолог" style="width:100%; height:100%; object-fit:cover; display:block;">
-    </div>
-
-    <p style="margin: 30px 0 16px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #8C8A66; animation: floatUp 1s ease both; animation-delay: 0.06s;">нутрициолог · дипломированный врач-педиатр</p>
-    <h1 style="margin: 0; font-family: 'Cormorant', serif; font-weight: 500; font-size: 46px; line-height: 1.0; letter-spacing: -0.5px; color: #3D3B2A; animation: floatUp 1.05s ease both; animation-delay: 0.1s;">Питание для каждого <span style="font-style: italic; color: #6E7148;">этапа</span> вашей жизни</h1>
-    <p style="margin: 22px 0 0; font-size: 16px; line-height: 1.6; color: #5E5C45; max-width: 330px; animation: floatUp 1.1s ease both; animation-delay: 0.14s;">Помогаю выстроить рацион под вашу цель и возраст — на принципах доказательной медицины, без жёстких диет. От снижения веса до питания всей семьи.</p>
-
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px 18px; margin: 28px 0 0; animation: floatUp 1.15s ease both; animation-delay: 0.18s;">
-      <div style="padding-left: 12px; border-left: 2px solid #C7D9BA;"><b style="display: block; font-weight: 600; font-size: 13.5px; color: #5C5A41; margin-bottom: 2px;">Научный подход</b><span style="font-size: 12px; line-height: 1.4; color: #82805F;">рекомендации по анализам</span></div>
-      <div style="padding-left: 12px; border-left: 2px solid #C7D9BA;"><b style="display: block; font-weight: 600; font-size: 13.5px; color: #5C5A41; margin-bottom: 2px;">Без запретов</b><span style="font-size: 12px; line-height: 1.4; color: #82805F;">комфортные изменения</span></div>
-      <div style="padding-left: 12px; border-left: 2px solid #C7D9BA;"><b style="display: block; font-weight: 600; font-size: 13.5px; color: #5C5A41; margin-bottom: 2px;">Онлайн</b><span style="font-size: 12px; line-height: 1.4; color: #82805F;">из любой точки мира</span></div>
-      <div style="padding-left: 12px; border-left: 2px solid #C7D9BA;"><b style="display: block; font-weight: 600; font-size: 13.5px; color: #5C5A41; margin-bottom: 2px;">Поддержка</b><span style="font-size: 12px; line-height: 1.4; color: #82805F;">на связи между встречами</span></div>
-    </div>
-
-    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 28px; animation: floatUp 1.2s ease both; animation-delay: 0.24s;">
-      <a href="#contact" style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px; border-radius: 100px; background: #6E7148; color: #F6F2E4; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0.8px; box-shadow: 0 14px 30px -14px rgba(110,113,72,0.7);"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"></path></svg>Бесплатная консультация</a>
-      <a href="#services" style="display: flex; align-items: center; justify-content: center; padding: 16px; border-radius: 100px; background: transparent; border: 1px solid rgba(157,158,115,0.5); color: #5C5A41; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0.8px;">Направления работы</a>
+  <!-- ===== ПЕРВЫЙ ЭКРАН ===== -->
+  <section id="top" class="hero">
+    <span class="amb amb-green a-hero-1"></span>
+    <span class="amb amb-gold a-hero-2"></span>
+    <div class="hero-wrap">
+      <div class="hero-left">
+        <div class="badge"><span class="leaf-mark"></span>нутрициолог · дипломированный врач-педиатр</div>
+        <h1 class="hero-title">Питание для<br>каждого этапа<br><span class="ital">вашей жизни</span></h1>
+        <p class="hero-lead">Помогаю выстроить рацион под вашу цель и возраст — на принципах доказательной медицины, без жёстких диет. От снижения веса до питания всей семьи.</p>
+        <div class="chips">
+          <div class="chip"><b>Научный подход</b><span>рекомендации по анализам</span></div>
+          <div class="chip"><b>Без запретов</b><span>комфортные изменения</span></div>
+          <div class="chip"><b>Онлайн</b><span>из любой точки мира</span></div>
+          <div class="chip"><b>Поддержка</b><span>на связи между встречами</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="portrait portrait-hero"><img src="kateof-2.jpeg" alt="Согреева Екатерина — нутрициолог"></div>
+        <span class="orange o-hero-1"></span>
+        <span class="orange o-hero-2"></span>
+        <span class="orange o-hero-3"></span>
+        <span class="leaf l-hero-1"></span>
+        <span class="leaf l-hero-2"></span>
+      </div>
     </div>
   </section>
 
-  <!-- soft divider citrus row -->
-  <div style="position: relative; z-index: 4; display: flex; align-items: center; justify-content: center; gap: 12px; padding: 40px 24px 10px; color: #A9A988;">
-    <span style="height: 1px; flex: 1; background: linear-gradient(90deg, transparent, rgba(157,158,115,0.45));"></span>
-    <svg viewBox="0 0 24 24" width="14" height="14"><circle cx="12" cy="12" r="11" fill="none" stroke="#9D9E73" stroke-width="1.4"></circle><line x1="12" y1="3" x2="12" y2="21" stroke="#9D9E73" stroke-width="1"></line><line x1="3" y1="12" x2="21" y2="12" stroke="#9D9E73" stroke-width="1"></line></svg>
-    <span style="height: 1px; flex: 1; background: linear-gradient(90deg, rgba(157,158,115,0.45), transparent);"></span>
-  </div>
-
-  <!-- ABOUT -->
-  <section id="about" style="position: relative; z-index: 4; padding: 26px 24px 12px;">
-
-    <!-- body silhouette shadow (photo) -->
-    <div style="position: absolute; top: 24px; right: -36px; width: 200px; height: 440px; opacity: 0.5; mix-blend-mode: multiply; pointer-events: none; z-index: -1;">
-      <img src="silhouette.png" alt="" style="width: 100%; height: 100%; object-fit: contain; object-position: top right;">
-    </div>
-
-    <p style="margin: 0 0 6px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #8C8A66;">обо мне</p>
-    <h2 style="margin: 0 0 22px; font-family: 'Cormorant', serif; font-weight: 500; font-size: 34px; line-height: 1.1; color: #3D3B2A; max-width: 300px;">6 лет в медицине за моей спиной</h2>
-
-    <p style="margin: 0 0 18px; font-size: 15.5px; line-height: 1.75; color: #54523D; max-width: 360px;">Здравствуйте, меня зовут Екатерина. Я нутрициолог и дипломированный <span style="color: #6E7148; font-weight: 500;">врач-педиатр</span>. Я знаю, как ухаживать и общаться с пациентами и нести ответственность за правильно выполненные назначения.</p>
-    <p style="margin: 0 0 18px; font-size: 15.5px; line-height: 1.75; color: #54523D; max-width: 360px;">В работе опираюсь лишь на принципы доказательной медицины и клинические рекомендации. Использую комплексный подход и индивидуальный рацион — для снижения веса или набора мышечной массы, коррекции образа жизни и снижения рисков заболеваний.</p>
-    <p style="margin: 0; font-size: 15.5px; line-height: 1.75; color: #54523D; max-width: 360px;">Педиатрическая подготовка помогает мне максимально безопасно и эффективно работать с растущим организмом. Я даю вам поддержку и инструменты, чтобы результат оставался с вами надолго.</p>
-
-    <!-- principle chips -->
-    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px;">
-      <span style="font-size: 12px; letter-spacing: 0.4px; color: #5C5A41; background: rgba(247,208,112,0.35); border: 1px solid rgba(157,158,115,0.3); padding: 8px 14px; border-radius: 100px;">доказательная медицина</span>
-      <span style="font-size: 12px; letter-spacing: 0.4px; color: #5C5A41; background: rgba(247,208,112,0.32); border: 1px solid rgba(157,158,115,0.3); padding: 8px 14px; border-radius: 100px;">индивидуальный рацион</span>
-      <span style="font-size: 12px; letter-spacing: 0.4px; color: #5C5A41; background: rgba(250,233,197,0.6); border: 1px solid rgba(157,158,115,0.3); padding: 8px 14px; border-radius: 100px;">комплексный подход</span>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services" style="position: relative; z-index: 4; padding: 48px 24px 12px;">
-    <p style="margin: 0 0 6px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #8C8A66;">направления</p>
-    <h2 style="margin: 0 0 28px; font-family: 'Cormorant', serif; font-weight: 500; font-size: 34px; line-height: 1.1; color: #3D3B2A;">С чем я работаю</h2>
-
-    <div style="display: flex; flex-direction: column; gap: 14px;">
-
-      <article style="position: relative; background: rgba(255,253,247,0.82); border: 1px solid rgba(157,158,115,0.28); border-radius: 22px; padding: 24px 22px; backdrop-filter: blur(2px); box-shadow: 0 16px 34px -26px rgba(110,113,72,0.5);">
-        <span style="font-family: 'Cormorant', serif; font-size: 22px; color: #B6B58A;">01</span>
-        <h3 style="margin: 8px 0 8px; font-family: 'Cormorant', serif; font-weight: 600; font-size: 23px; color: #3D3B2A;">Вес и мышечная масса</h3>
-        <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #5E5C45;">Консультирование по вопросам питания для снижения веса или набора мышечной массы — через индивидуальный рацион.</p>
-      </article>
-
-      <article style="position: relative; background: rgba(255,253,247,0.82); border: 1px solid rgba(157,158,115,0.28); border-radius: 22px; padding: 24px 22px; backdrop-filter: blur(2px); box-shadow: 0 16px 34px -26px rgba(110,113,72,0.5);">
-        <span style="font-family: 'Cormorant', serif; font-size: 22px; color: #B6B58A;">02</span>
-        <h3 style="margin: 8px 0 8px; font-family: 'Cormorant', serif; font-weight: 600; font-size: 23px; color: #3D3B2A;">Образ жизни и сон</h3>
-        <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #5E5C45;">Коррекция образа жизни, чтобы снизить риски развития заболеваний, и помощь в нормализации сна.</p>
-      </article>
-
-      <article style="position: relative; background: rgba(255,253,247,0.82); border: 1px solid rgba(157,158,115,0.28); border-radius: 22px; padding: 24px 22px; backdrop-filter: blur(2px); box-shadow: 0 16px 34px -26px rgba(110,113,72,0.5);">
-        <span style="font-family: 'Cormorant', serif; font-size: 22px; color: #B6B58A;">03</span>
-        <h3 style="margin: 8px 0 8px; font-family: 'Cormorant', serif; font-weight: 600; font-size: 23px; color: #3D3B2A;">Особые периоды жизни</h3>
-        <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #5E5C45;">Питание беременных и кормящих женщин, а также питание пожилых людей с учётом их потребностей.</p>
-      </article>
-
-      <article style="position: relative; overflow: hidden; background: linear-gradient(135deg, #6E7148 0%, #818456 100%); border-radius: 22px; padding: 26px 22px; box-shadow: 0 20px 40px -22px rgba(110,113,72,0.85);">
-        <div style="position: absolute; top: -26px; right: -26px; width: 110px; height: 110px; opacity: 0.5;">
-          <svg viewBox="0 0 100 100" width="100%" height="100%"><circle cx="50" cy="50" r="48" fill="#DE7E26"></circle><circle cx="50" cy="50" r="45" fill="#EE9A39"></circle><circle cx="50" cy="50" r="42" fill="#FBEAD1"></circle><circle cx="50" cy="50" r="40" fill="#F2A23A"></circle><circle cx="78.8" cy="58.5" r="2.4" fill="#F8C06A" opacity="0.8"></circle><circle cx="69.6" cy="72.7" r="2.4" fill="#F8C06A" opacity="0.8"></circle><circle cx="54.3" cy="79.7" r="2.4" fill="#F8C06A" opacity="0.8"></circle><circle cx="37.5" cy="77.3" r="2.4" fill="#F8C06A" opacity="0.8"></circle><circle cx="24.8" cy="66.2" r="2.4" fill="#F8C06A" opacity="0.8"></circle><circle cx="20.0" cy="50.0" r="2.4" fill="#F8C06A" opacity="0.8"></circle><circle cx="24.8" cy="33.8" r="2.4" fill="#F8C06A" opacity="0.8"></circle><circle cx="37.5" cy="22.7" r="2.4" fill="#F8C06A" opacity="0.8"></circle><circle cx="54.3" cy="20.3" r="2.4" fill="#F8C06A" opacity="0.8"></circle><circle cx="69.6" cy="27.3" r="2.4" fill="#F8C06A" opacity="0.8"></circle><circle cx="78.8" cy="41.5" r="2.4" fill="#F8C06A" opacity="0.8"></circle><g stroke="#FBEAD1" stroke-width="2.2" stroke-linecap="round"><line x1="50" y1="50" x2="90.0" y2="50.0"></line><line x1="50" y1="50" x2="83.7" y2="71.6"></line><line x1="50" y1="50" x2="66.6" y2="86.4"></line><line x1="50" y1="50" x2="44.3" y2="89.6"></line><line x1="50" y1="50" x2="23.8" y2="80.2"></line><line x1="50" y1="50" x2="11.6" y2="61.3"></line><line x1="50" y1="50" x2="11.6" y2="38.7"></line><line x1="50" y1="50" x2="23.8" y2="19.8"></line><line x1="50" y1="50" x2="44.3" y2="10.4"></line><line x1="50" y1="50" x2="66.6" y2="13.6"></line><line x1="50" y1="50" x2="83.7" y2="28.4"></line></g><circle cx="50" cy="50" r="6.5" fill="#FBEAD1"></circle><path d="M22 26 A40 40 0 0 1 60 12" fill="none" stroke="#FBEAD1" stroke-width="2.5" stroke-linecap="round" opacity="0.5"></path></svg>
+  <!-- ===== ОБО МНЕ ===== -->
+  <section id="about" class="section bg2">
+    <span class="leaf l-about"></span>
+    <div class="about-row">
+      <div class="about-photo-col">
+        <div class="portrait portrait-about"><img src="katedr-2.jpeg" alt="Согреева Екатерина"></div>
+        <span class="orange o-about"></span>
+      </div>
+      <div class="about-text">
+        <div class="eyebrow"><i></i>обо мне</div>
+        <h2>6 лет в медицине<br>за моей спиной</h2>
+        <div class="about-p">
+          <p>Здравствуйте, меня зовут Екатерина. Я нутрициолог и дипломированный врач-педиатр. Я знаю, как ухаживать и общаться с пациентами и нести ответственность за правильно выполненные назначения.</p>
+          <p>В работе опираюсь лишь на принципы доказательной медицины и клинические рекомендации. Использую комплексный подход и индивидуальный рацион — для снижения веса или набора мышечной массы, коррекции образа жизни и снижения рисков заболеваний.</p>
+          <p>Педиатрическая подготовка помогает мне максимально безопасно и эффективно работать с растущим организмом. Я даю вам поддержку и инструменты, чтобы результат оставался с вами надолго.</p>
         </div>
-        <span style="position: relative; font-size: 10px; letter-spacing: 2.4px; text-transform: uppercase; color: #D6DBB8;">отдельное направление</span>
-        <h3 style="position: relative; margin: 12px 0 8px; font-family: 'Cormorant', serif; font-weight: 600; font-size: 25px; color: #F8F4E6;">Дети и подростки</h3>
-        <p style="position: relative; margin: 0; font-size: 14.5px; line-height: 1.6; color: #E4E5CE; max-width: 250px;">Коррекция питания детей и подростков. Педиатрическая подготовка помогает безопасно работать с растущим организмом.</p>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- ambient leaf shadow — bottom left -->
-  <div style="position: absolute; bottom: 90px; left: -80px; width: 300px; height: 470px; opacity: 0.42; mix-blend-mode: multiply; transform: scaleX(-1) rotate(-6deg); animation: swayLeaf 12s ease-in-out infinite; pointer-events: none; z-index: 1;">
-    <img src="leaves.png" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: bottom left;">
-  </div>
-
-  <!-- REVIEWS -->
-  <section id="reviews" style="position: relative; z-index: 4; padding: 48px 24px 12px;">
-    <p style="margin: 0 0 6px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #8C8A66;">отзывы</p>
-    <h2 style="margin: 0 0 24px; font-family: 'Cormorant', serif; font-weight: 500; font-size: 34px; line-height: 1.1; color: #3D3B2A;">Что говорят клиенты</h2>
-    <div style="overflow: hidden;">
-      <div id="revTrack" style="display: flex; transition: transform .5s cubic-bezier(.6,.05,.2,1);">
-        <div style="min-width: 100%; padding: 0 2px;">
-          <article style="background: rgba(255,253,247,0.82); border: 1px solid rgba(157,158,115,0.28); border-radius: 22px; padding: 26px 24px; box-shadow: 0 16px 34px -26px rgba(110,113,72,0.5);">
-            <div style="color: #E0B24E; letter-spacing: 3px; font-size: 14px; margin-bottom: 14px;">★★★★★</div>
-            <p style="margin: 0 0 20px; font-family: 'Cormorant', serif; font-style: italic; font-size: 21px; line-height: 1.45; color: #3D3B2A;">«Переход к здоровому питанию был очень мягким, без строгих ограничений. Через месяц ушла усталость, а анализы стали лучше.»</p>
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <span style="width: 42px; height: 42px; border-radius: 50%; background: rgba(199,217,186,0.6); display: inline-flex; align-items: center; justify-content: center; font-family: 'Cormorant', serif; font-size: 15px; color: #6E7148;">ЕМ</span>
-              <div><div style="font-size: 14px; font-weight: 600; color: #3D3B2A;">Елена М.</div><div style="font-size: 12px; color: #82805F;">Снижение веса</div></div>
-            </div>
-          </article>
-        </div>
-        <div style="min-width: 100%; padding: 0 2px;">
-          <article style="background: rgba(255,253,247,0.82); border: 1px solid rgba(157,158,115,0.28); border-radius: 22px; padding: 26px 24px; box-shadow: 0 16px 34px -26px rgba(110,113,72,0.5);">
-            <div style="color: #E0B24E; letter-spacing: 3px; font-size: 14px; margin-bottom: 14px;">★★★★★</div>
-            <p style="margin: 0 0 20px; font-family: 'Cormorant', serif; font-style: italic; font-size: 21px; line-height: 1.45; color: #3D3B2A;">«Наконец наладился сон и появилась энергия днём. Всё разложено по полочкам — есть понятный план и спокойствие.»</p>
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <span style="width: 42px; height: 42px; border-radius: 50%; background: rgba(199,217,186,0.6); display: inline-flex; align-items: center; justify-content: center; font-family: 'Cormorant', serif; font-size: 15px; color: #6E7148;">ОК</span>
-              <div><div style="font-size: 14px; font-weight: 600; color: #3D3B2A;">Ольга К.</div><div style="font-size: 12px; color: #82805F;">Коррекция образа жизни</div></div>
-            </div>
-          </article>
-        </div>
-        <div style="min-width: 100%; padding: 0 2px;">
-          <article style="background: rgba(255,253,247,0.82); border: 1px solid rgba(157,158,115,0.28); border-radius: 22px; padding: 26px 24px; box-shadow: 0 16px 34px -26px rgba(110,113,72,0.5);">
-            <div style="color: #E0B24E; letter-spacing: 3px; font-size: 14px; margin-bottom: 14px;">★★★★★</div>
-            <p style="margin: 0 0 20px; font-family: 'Cormorant', serif; font-style: italic; font-size: 21px; line-height: 1.45; color: #3D3B2A;">«Обратились по питанию для ребёнка. Екатерина помогла без давления и стресса — сын стал лучше есть и реже болеть.»</p>
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <span style="width: 42px; height: 42px; border-radius: 50%; background: rgba(199,217,186,0.6); display: inline-flex; align-items: center; justify-content: center; font-family: 'Cormorant', serif; font-size: 15px; color: #6E7148;">ИВ</span>
-              <div><div style="font-size: 14px; font-weight: 600; color: #3D3B2A;">Ирина В.</div><div style="font-size: 12px; color: #82805F;">Питание подростка</div></div>
-            </div>
-          </article>
-        </div>
-        <div style="min-width: 100%; padding: 0 2px;">
-          <article style="background: rgba(255,253,247,0.82); border: 1px solid rgba(157,158,115,0.28); border-radius: 22px; padding: 26px 24px; box-shadow: 0 16px 34px -26px rgba(110,113,72,0.5);">
-            <div style="color: #E0B24E; letter-spacing: 3px; font-size: 14px; margin-bottom: 14px;">★★★★★</div>
-            <p style="margin: 0 0 20px; font-family: 'Cormorant', serif; font-style: italic; font-size: 21px; line-height: 1.45; color: #3D3B2A;">«Вела меня во время беременности и после родов. Чувствовала заботу и поддержку на каждом этапе. Рекомендую всем мамам!»</p>
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <span style="width: 42px; height: 42px; border-radius: 50%; background: rgba(199,217,186,0.6); display: inline-flex; align-items: center; justify-content: center; font-family: 'Cormorant', serif; font-size: 15px; color: #6E7148;">МС</span>
-              <div><div style="font-size: 14px; font-weight: 600; color: #3D3B2A;">Мария С.</div><div style="font-size: 12px; color: #82805F;">Питание при беременности</div></div>
-            </div>
-          </article>
+        <div class="tags">
+          <span class="tag">доказательная медицина</span>
+          <span class="tag terra">индивидуальный рацион</span>
+          <span class="tag">комплексный подход</span>
         </div>
       </div>
     </div>
-    <div style="display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 22px;">
-      <button id="revPrev" aria-label="Назад" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(157,158,115,0.5); background: transparent; color: #6E7148; font-size: 16px; cursor: pointer;">‹</button>
-      <div id="revDots" style="display: flex; gap: 7px;"></div>
-      <button id="revNext" aria-label="Вперёд" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(157,158,115,0.5); background: transparent; color: #6E7148; font-size: 16px; cursor: pointer;">›</button>
+  </section>
+
+  <!-- ===== НАПРАВЛЕНИЯ ===== -->
+  <section id="directions" class="section">
+    <span class="orange o-dir"></span>
+    <div class="wrap">
+      <div class="head-center">
+        <div class="eyebrow"><i></i>направления<i></i></div>
+        <h2 class="sec-title">С чем я работаю</h2>
+      </div>
+      <div class="dir-grid">
+        <div class="dir-card">
+          <span class="dir-num">01</span>
+          <h3>Вес и мышечная масса</h3>
+          <p>Консультирование по вопросам питания для снижения веса или набора мышечной массы — через индивидуальный рацион.</p>
+          <span class="leaf card-leaf"></span>
+        </div>
+        <div class="dir-card">
+          <span class="dir-num">02</span>
+          <h3>Образ жизни и сон</h3>
+          <p>Коррекция образа жизни, чтобы снизить риски развития заболеваний, и помощь в нормализации сна.</p>
+          <span class="leaf card-leaf"></span>
+        </div>
+        <div class="dir-card">
+          <span class="dir-num">03</span>
+          <h3>Особые периоды жизни</h3>
+          <p>Питание беременных и кормящих женщин, а также питание пожилых людей с учётом их потребностей.</p>
+          <span class="leaf card-leaf"></span>
+        </div>
+      </div>
+      <div class="special">
+        <div class="special-text">
+          <span class="special-tag">отдельное направление</span>
+          <h3>Дети и подростки</h3>
+          <p>Коррекция питания детей и подростков. Педиатрическая подготовка помогает безопасно работать с растущим организмом.</p>
+        </div>
+        <div class="special-art">
+          <span class="leaf sp-l1"></span>
+          <span class="leaf sp-l2"></span>
+          <span class="orange sp-o"></span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" style="position: relative; z-index: 4; margin: 52px 16px 0; padding: 44px 26px 40px; border-radius: 30px; background: linear-gradient(165deg, rgba(247,208,112,0.5), rgba(255,247,224,0.75)); border: 1px solid rgba(157,158,115,0.3); overflow: hidden;">
-    <p style="margin: 0 0 14px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #7E815A;">обращение</p>
-    <h2 style="margin: 0 0 18px; font-family: 'Cormorant', serif; font-weight: 500; font-size: 38px; line-height: 1.05; color: #3D3B2A;">Жду вашего<br><span style="font-style: italic; color: #6E7148;">обращения</span></h2>
-    <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.65; color: #54523D; max-width: 320px;">Напишите мне — подберём формат и начнём путь к результату, который останется с вами надолго.</p>
+  <!-- ===== ОТЗЫВЫ ===== -->
+  <section id="reviews" class="section bg2">
+    <span class="amb a-rev"></span>
+    <div class="rev-stage">
+      <div class="head-center">
+        <div class="eyebrow"><i></i>отзывы<i></i></div>
+        <h2 class="sec-title">Что говорят клиенты</h2>
+      </div>
+      <div class="rev-mask">
+        <div class="rev-track" id="revTrack">
 
-    <div style="display: flex; flex-direction: column; gap: 12px;">
-      <a href="https://t.me/" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: space-between; padding: 17px 22px; border-radius: 100px; background: #6E7148; color: #F6F2E4; font-size: 14px; font-weight: 500; letter-spacing: 0.8px;">
-        <span>Написать в Telegram</span>
-        <span style="font-family: 'Cormorant', serif; font-size: 20px;">→</span>
-      </a>
-      <a href="https://max.ru/" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: space-between; padding: 17px 22px; border-radius: 100px; background: rgba(252,250,242,0.85); border: 1px solid rgba(157,158,115,0.4); color: #4A4836; font-size: 14px; font-weight: 500; letter-spacing: 0.8px;">
-        <span>Написать в MAX</span>
-        <span style="font-family: 'Cormorant', serif; font-size: 20px;">→</span>
-      </a>
-      <a href="https://vk.com/" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: space-between; padding: 17px 22px; border-radius: 100px; background: rgba(252,250,242,0.85); border: 1px solid rgba(157,158,115,0.4); color: #4A4836; font-size: 14px; font-weight: 500; letter-spacing: 0.8px;">
-        <span>Написать ВКонтакте</span>
-        <span style="font-family: 'Cormorant', serif; font-size: 20px;">→</span>
-      </a>
+          <div class="rev-slide">
+            <div class="rev-card">
+              <span class="orange o-rev"></span>
+              <div class="stars">★★★★★</div>
+              <p class="quote">«Переход к здоровому питанию был очень мягким, без строгих ограничений. Через месяц ушла усталость, а анализы стали лучше.»</p>
+              <div class="reviewer"><span class="avatar">ЕМ</span><div class="who"><b>Елена М.</b><span>Снижение веса</span></div></div>
+            </div>
+          </div>
+
+          <div class="rev-slide">
+            <div class="rev-card">
+              <span class="orange o-rev"></span>
+              <div class="stars">★★★★★</div>
+              <p class="quote">«Наконец наладился сон и появилась энергия днём. Всё разложено по полочкам — есть понятный план и спокойствие.»</p>
+              <div class="reviewer"><span class="avatar">ОК</span><div class="who"><b>Ольга К.</b><span>Коррекция образа жизни</span></div></div>
+            </div>
+          </div>
+
+          <div class="rev-slide">
+            <div class="rev-card">
+              <span class="orange o-rev"></span>
+              <div class="stars">★★★★★</div>
+              <p class="quote">«Обратились по питанию для ребёнка. Екатерина помогла без давления и стресса — сын стал лучше есть и реже болеть.»</p>
+              <div class="reviewer"><span class="avatar">ИВ</span><div class="who"><b>Ирина В.</b><span>Питание подростка</span></div></div>
+            </div>
+          </div>
+
+          <div class="rev-slide">
+            <div class="rev-card">
+              <span class="orange o-rev"></span>
+              <div class="stars">★★★★★</div>
+              <p class="quote">«Вела меня во время беременности и после родов. Чувствовала заботу и поддержку на каждом этапе. Рекомендую всем мамам!»</p>
+              <div class="reviewer"><span class="avatar">МС</span><div class="who"><b>Мария С.</b><span>Питание при беременности</span></div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="rev-nav">
+        <button class="arrow" id="revPrev" aria-label="Назад">‹</button>
+        <div class="dots" id="revDots"></div>
+        <button class="arrow" id="revNext" aria-label="Вперёд">›</button>
+      </div>
     </div>
   </section>
 
-  <!-- footer -->
-  <footer style="position: relative; z-index: 4; padding: 34px 24px 40px; text-align: center;">
-    <p style="margin: 0 0 4px; font-family: 'Cormorant', serif; font-size: 19px; color: #3D3B2A;">Екатерина Согреева</p>
-    <p style="margin: 0; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #9A9876;">нутрициолог · врач-педиатр</p>
+  <!-- ===== ОБРАЩЕНИЕ ===== -->
+  <section id="contact" class="section">
+    <img class="cta-fig" src="silhouette.png" alt="">
+    <span class="leaf l-cta"></span>
+    <span class="orange o-cta"></span>
+    <div class="cta-box">
+      <div class="eyebrow"><i></i>обращение<i></i></div>
+      <h2>Жду вашего<br><span class="ital">обращения</span></h2>
+      <p>Напишите мне — подберём формат и начнём путь к результату, который останется с вами надолго.</p>
+      <div class="cta-buttons">
+        <a href="https://t.me/" target="_blank" rel="noopener" class="btn-orange">Написать в Telegram <span class="arr">→</span></a>
+        <a href="https://max.ru/" target="_blank" rel="noopener" class="btn-light">Написать в MAX <span class="arr">→</span></a>
+        <a href="https://vk.com/" target="_blank" rel="noopener" class="btn-light">Написать ВКонтакте <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ФУТЕР ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="brand">
+        <span class="leaf-mark"></span>
+        <span class="brand-name">Согреева Екатерина</span>
+      </div>
+      <span class="footer-sub">нутрициолог · врач-педиатр</span>
+    </div>
   </footer>
 
 </div>
 
 <script>
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){
-    a.addEventListener('click', function(e){
-      var el = document.querySelector(a.getAttribute('href'));
-      if(el){ e.preventDefault(); window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 12, behavior: 'smooth' }); }
-    });
-  });
-
   (function(){
     var track = document.getElementById('revTrack');
     if(!track) return;
@@ -228,23 +398,25 @@
     var dotsWrap = document.getElementById('revDots');
     for(var k=0;k<n;k++){
       var d = document.createElement('button');
-      d.style.cssText = 'width:7px;height:7px;border-radius:50%;border:none;cursor:pointer;padding:0;transition:.25s;background:'+(k===0?'#6E7148':'rgba(157,158,115,0.4)');
-      (function(idx){ d.addEventListener('click', function(){ go(idx); }); })(k);
+      d.setAttribute('aria-label','Отзыв');
+      d.style.cssText = 'width:9px;height:9px;border-radius:50%;border:none;cursor:pointer;padding:0;transition:background .3s,width .3s;background:'+(k===0?'#E2842F':'#D9C9AC');
+      (function(idx){ d.addEventListener('click', function(){ go(idx); restart(); }); })(k);
       dotsWrap.appendChild(d);
     }
     function go(x){
       i = (x+n)%n;
       track.style.transform = 'translateX(-'+(i*100)+'%)';
       for(var k=0;k<dotsWrap.children.length;k++){
-        dotsWrap.children[k].style.background = (k===i?'#6E7148':'rgba(157,158,115,0.4)');
-        dotsWrap.children[k].style.width = (k===i?'20px':'7px');
-        dotsWrap.children[k].style.borderRadius = (k===i?'4px':'50%');
+        var on = k===i;
+        dotsWrap.children[k].style.background = on?'#E2842F':'#D9C9AC';
+        dotsWrap.children[k].style.width = on?'24px':'9px';
+        dotsWrap.children[k].style.borderRadius = on?'5px':'50%';
       }
     }
-    document.getElementById('revNext').addEventListener('click', function(){ go(i+1); });
-    document.getElementById('revPrev').addEventListener('click', function(){ go(i-1); });
-    var auto = setInterval(function(){ go(i+1); }, 5500);
-    track.addEventListener('touchstart', function(){ clearInterval(auto); });
+    document.getElementById('revNext').addEventListener('click', function(){ go(i+1); restart(); });
+    document.getElementById('revPrev').addEventListener('click', function(){ go(i-1); restart(); });
+    var auto = setInterval(function(){ go(i+1); }, 6500);
+    function restart(){ clearInterval(auto); auto = setInterval(function(){ go(i+1); }, 6500); }
   })();
 </script>
 </body>
