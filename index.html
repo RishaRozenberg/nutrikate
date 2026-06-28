@@ -127,8 +127,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
 .reviewer{display:flex;align-items:center;justify-content:center;gap:14px;}
 .avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(140deg,#F0B968,#E2842F);color:#FFF8EC;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex:none;}
 .reviewer .who{text-align:left;}
-.reviewer .who b{font-weight:700;font-size:15px;}
-.reviewer .who span{font-size:13px;color:var(--muted2);}
+.reviewer .who b{display:block;font-weight:700;font-size:15px;line-height:1.3;}
+.reviewer .who span{display:block;font-size:13px;color:var(--muted2);line-height:1.3;}
 .rev-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:30px;}
 .arrow{width:50px;height:50px;border-radius:50%;border:1px solid rgba(45,42,32,.12);background:var(--card);color:#3A352A;font-size:22px;line-height:1;cursor:pointer;box-shadow:0 8px 20px rgba(120,90,50,.08);display:flex;align-items:center;justify-content:center;}
 .dots{display:flex;align-items:center;gap:9px;}
@@ -177,9 +177,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
 /* directions decor */
 .o-dir{top:60px;right:4%;width:80px;height:80px;opacity:.5;box-shadow:inset 0 0 0 4px #E2842F,inset 0 0 0 6px #FBEAC8;}
 .card-leaf{bottom:-20px;right:-16px;width:64px;height:38px;opacity:.16;transform:rotate(20deg);}
-.sp-l1{top:20px;left:40px;width:110px;height:62px;background:linear-gradient(140deg,#93A865,#5E7142);box-shadow:0 14px 26px rgba(78,93,45,.2);transform:rotate(-18deg);}
-.sp-l2{top:70px;left:90px;width:90px;height:52px;box-shadow:0 12px 22px rgba(78,93,45,.18);transform:rotate(34deg);}
-.sp-o{top:6px;left:120px;width:60px;height:60px;}
+.sp-corner{right:-34px;bottom:-34px;width:108px;height:108px;box-shadow:inset 0 0 0 4px #E2842F,inset 0 0 0 6px #FBEAC8;}
 /* reviews decor */
 .a-rev{top:-40px;left:-40px;width:240px;height:240px;background:radial-gradient(circle,rgba(246,221,160,.5),rgba(243,231,210,0) 70%);}
 .o-rev{top:-26px;right:-22px;width:90px;height:90px;opacity:.4;box-shadow:inset 0 0 0 5px #E2842F,inset 0 0 0 8px #FBEAC8;}
@@ -188,6 +186,15 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
 .l-cta{top:30px;right:8%;width:96px;height:56px;opacity:.22;transform:rotate(28deg);}
 .o-cta{bottom:40px;right:20%;width:70px;height:70px;opacity:.45;box-shadow:inset 0 0 0 4px #E2842F,inset 0 0 0 6px #FBEAC8;}
 .footer .leaf-mark{width:24px;height:14px;background:linear-gradient(140deg,#A6B878,#6E7F4E);}
+
+/* ============================================================
+   МОБИЛЬНАЯ ВЕРСИЯ (телефон)
+   ============================================================ */
+@media(max-width:760px){
+  .menu a:not(.btn-pill){display:none;}   /* прячем пункты меню, оставляем «Записаться» */
+  .about-row{flex-direction:column-reverse;} /* сначала текст, потом фото — чтобы фото не шли подряд */
+  .cta-fig{height:55%;left:-14%;bottom:6%;} /* силуэт меньше и сбоку слева, чтобы руки не вылезали */
+}
 </style>
 </head>
 <body>
@@ -197,7 +204,6 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
   <!-- ===== ШАПКА ===== -->
   <header class="nav">
     <a href="#top" class="brand">
-      <span class="leaf-mark"></span>
       <span class="brand-name">Согреева Екатерина</span>
     </a>
     <nav class="menu">
@@ -214,7 +220,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
     <span class="amb amb-gold a-hero-2"></span>
     <div class="hero-wrap">
       <div class="hero-left">
-        <div class="badge"><span class="leaf-mark"></span>нутрициолог · дипломированный врач-педиатр</div>
+        <div class="badge">нутрициолог · дипломированный врач-педиатр</div>
         <h1 class="hero-title">Питание для<br>каждого этапа<br><span class="ital">вашей жизни</span></h1>
         <p class="hero-lead">Помогаю выстроить рацион под вашу цель и возраст — на принципах доказательной медицины, без жёстких диет. От снижения веса до питания всей семьи.</p>
         <div class="chips">
@@ -252,8 +258,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
           <p>Педиатрическая подготовка помогает мне максимально безопасно и эффективно работать с растущим организмом. Я даю вам поддержку и инструменты, чтобы результат оставался с вами надолго.</p>
         </div>
         <div class="tags">
-          <span class="tag">доказательная медицина</span>
-          <span class="tag terra">индивидуальный рацион</span>
+          <span class="tag terra">доказательная медицина</span>
+          <span class="tag">индивидуальный рацион</span>
           <span class="tag">комплексный подход</span>
         </div>
       </div>
@@ -294,11 +300,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
           <h3>Дети и подростки</h3>
           <p>Коррекция питания детей и подростков. Педиатрическая подготовка помогает безопасно работать с растущим организмом.</p>
         </div>
-        <div class="special-art">
-          <span class="leaf sp-l1"></span>
-          <span class="leaf sp-l2"></span>
-          <span class="orange sp-o"></span>
-        </div>
+        <span class="orange sp-corner"></span>
       </div>
     </div>
   </section>
@@ -366,8 +368,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
     <span class="leaf l-cta"></span>
     <span class="orange o-cta"></span>
     <div class="cta-box">
-      <div class="eyebrow"><i></i>обращение<i></i></div>
-      <h2>Жду вашего<br><span class="ital">обращения</span></h2>
+      <div class="eyebrow"><i></i>контакты<i></i></div>
+      <h2>Буду рада<br><span class="ital">знакомству</span></h2>
       <p>Напишите мне — подберём формат и начнём путь к результату, который останется с вами надолго.</p>
       <div class="cta-buttons">
         <a href="https://t.me/" target="_blank" rel="noopener" class="btn-orange">Написать в Telegram <span class="arr">→</span></a>
@@ -381,7 +383,6 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
   <footer class="footer">
     <div class="footer-inner">
       <div class="brand">
-        <span class="leaf-mark"></span>
         <span class="brand-name">Согреева Екатерина</span>
       </div>
       <span class="footer-sub">нутрициолог · врач-педиатр</span>
