@@ -180,7 +180,8 @@
     .burger{display:flex}
     .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
     .msg-grid{max-width:380px}
-    .foot-grid{grid-template-columns:1fr;gap:32px}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:32px 24px}
+    .foot-grid>div:first-child{grid-column:1/-1}
     .hero-img{order:-1;max-width:360px;margin:0 auto;width:100%}
     .value-grid,.step-grid{grid-template-columns:1fr 1fr}
     .hero-facts{max-width:none}
