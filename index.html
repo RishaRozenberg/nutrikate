@@ -192,7 +192,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
    ============================================================ */
 @media(max-width:760px){
   .menu a:not(.btn-pill){display:none;}   /* прячем пункты меню, оставляем «Записаться» */
-  .about-row{flex-direction:column-reverse;} /* сначала текст, потом фото — чтобы фото не шли подряд */
+  .hero-wrap{flex-direction:column-reverse;} /* сначала фото, потом текст */
+  .about-row{flex-direction:column;}        /* сначала фото, потом текст */
   .cta-fig{height:50%;left:-3%;bottom:6%;} /* силуэт меньше и сбоку слева, чтобы не вылезал за края */
 }
 </style>
@@ -246,7 +247,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
     <span class="leaf l-about"></span>
     <div class="about-row">
       <div class="about-photo-col">
-        <div class="portrait portrait-about"><img src="katedr-3.jpeg" alt="Согреева Екатерина"></div>
+        <div class="portrait portrait-about"><img src="katedr-3.png" alt="Согреева Екатерина"></div>
         <span class="orange o-about"></span>
       </div>
       <div class="about-text">
@@ -369,8 +370,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
     <span class="orange o-cta"></span>
     <div class="cta-box">
       <div class="eyebrow"><i></i>контакты<i></i></div>
-      <h2>Буду рада<br><span class="ital">знакомству</span></h2>
-      <p>Напишите мне — подберём формат и начнём путь к результату, который останется с вами надолго.</p>
+      <h2>Запишитесь на<br><span class="ital">консультацию</span></h2>
+      <p>Напишите мне в удобный мессенджер — подберём формат и начнём путь к результату, который останется с вами надолго.</p>
       <div class="cta-buttons">
         <a href="https://t.me/" target="_blank" rel="noopener" class="btn-orange">Написать в Telegram <span class="arr">→</span></a>
         <a href="https://max.ru/" target="_blank" rel="noopener" class="btn-light">Написать в MAX <span class="arr">→</span></a>
