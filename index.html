@@ -192,8 +192,12 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
    ============================================================ */
 @media(max-width:760px){
   .menu a:not(.btn-pill){display:none;}   /* прячем пункты меню, оставляем «Записаться» */
+  .nav{padding-left:16px;padding-right:16px;gap:12px;}
+  .brand-name{font-size:16px;white-space:nowrap;} /* имя в одну строку */
   .hero-wrap{flex-direction:column-reverse;} /* сначала фото, потом текст */
   .about-row{flex-direction:column;}        /* сначала фото, потом текст */
+  .chips{grid-template-columns:1fr 1fr;max-width:none;} /* 2 колонки, не обрезаются */
+  .sp-corner{width:82px;height:82px;right:-26px;bottom:-26px;} /* апельсин меньше, не налезает */
   .cta-fig{height:50%;left:-3%;bottom:6%;} /* силуэт меньше и сбоку слева, чтобы не вылезал за края */
 }
 </style>
@@ -252,7 +256,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
       </div>
       <div class="about-text">
         <div class="eyebrow"><i></i>обо мне</div>
-        <h2>6 лет в медицине<br>за моей спиной</h2>
+        <h2>6 лет в медицине</h2>
         <div class="about-p">
           <p>Здравствуйте, меня зовут Екатерина. Я нутрициолог и дипломированный врач-педиатр. Я знаю, как ухаживать и общаться с пациентами и нести ответственность за правильно выполненные назначения.</p>
           <p>В работе опираюсь лишь на принципы доказательной медицины и клинические рекомендации. Использую комплексный подход и индивидуальный рацион — для снижения веса или набора мышечной массы, коррекции образа жизни и снижения рисков заболеваний.</p>
