@@ -91,7 +91,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
 .about-row{position:relative;max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,72px);align-items:center;}
 .about-photo-col{flex:1 1 320px;min-width:280px;position:relative;display:flex;justify-content:center;}
 .portrait-about{width:min(400px,90%);aspect-ratio:5/6;border-radius:44% 56% 50% 50% / 54% 50% 50% 46%;overflow:hidden;background:#E3D4B4;box-shadow:0 36px 70px rgba(150,110,60,.20),inset 0 0 0 8px rgba(251,245,234,.7);}
-.portrait-about img{width:100%;height:100%;object-fit:cover;}
+.portrait-about img{width:100%;height:100%;object-fit:cover;object-position:center 12%;}
 .about-text{flex:1 1 420px;min-width:300px;}
 .about-text h2{font-size:clamp(30px,4vw,48px);line-height:1.08;margin:18px 0 26px;}
 .about-p{display:flex;flex-direction:column;gap:16px;font-size:16px;line-height:1.65;color:var(--muted);max-width:540px;}
@@ -158,7 +158,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
    ДЕКОР: апельсины, листья, мягкие пятна (без текста)
    ============================================================ */
 .orange{position:absolute;border-radius:50%;background:radial-gradient(circle at 50% 50%,#FCE7B6 0 16%,transparent 16.5%),repeating-conic-gradient(from 7deg at 50% 50%,#FFF6E2 0deg 1.2deg,#F4B05A 1.2deg 28.8deg,#FFF6E2 28.8deg 30deg),#F2A748;box-shadow:inset 0 0 0 4px #E2842F,inset 0 0 0 6px #FBEAC8,0 12px 22px rgba(200,110,40,.2);pointer-events:none;}
-.leaf{position:absolute;border-radius:0 100% 0 100%;background:linear-gradient(140deg,#A6B878,#6E7F4E);pointer-events:none;}
+.leaf{position:absolute;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2064%2070%27%3E%3Cpath%20d%3D%27M32%203%20C50%2016%2054%2044%2032%2067%20C10%2044%2014%2016%2032%203%20Z%27%20fill%3D%27%235E7142%27%2F%3E%3Cpath%20d%3D%27M32%209%20C32%2028%2032%2046%2032%2062%27%20stroke%3D%27%23FBF5EA%27%20stroke-width%3D%272.4%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%2F%3E%3Cpath%20d%3D%27M32%2022%20L21%2017%20M32%2022%20L43%2017%20M32%2033%20L19%2029%20M32%2033%20L45%2029%20M32%2044%20L22%2041%20M32%2044%20L42%2041%27%20stroke%3D%27%23FBF5EA%27%20stroke-width%3D%271.5%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;pointer-events:none;}
 .amb{position:absolute;border-radius:50%;pointer-events:none;}
 .amb-green{background:radial-gradient(circle,rgba(233,235,220,.9),rgba(251,245,234,0) 70%);}
 .amb-gold{background:radial-gradient(circle,rgba(246,221,160,.45),rgba(251,245,234,0) 70%);}
@@ -169,21 +169,21 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
 .o-hero-1{--r:-8deg;z-index:3;top:2%;left:2%;width:96px;height:96px;box-shadow:inset 0 0 0 5px #E2842F,inset 0 0 0 8px #FBEAC8,0 16px 30px rgba(200,110,40,.22);animation:floatA 7s ease-in-out infinite;}
 .o-hero-2{--r:12deg;z-index:3;bottom:6%;left:-2%;width:66px;height:66px;animation:floatB 6s ease-in-out infinite;}
 .o-hero-3{--r:-18deg;z-index:3;top:14%;right:-4%;width:54px;height:54px;animation:floatA 8s ease-in-out infinite;}
-.l-hero-1{z-index:3;bottom:2%;right:8%;width:78px;height:44px;background:linear-gradient(125deg,transparent 48%,rgba(255,255,255,.32) 49.5%,rgba(255,255,255,.32) 50.5%,transparent 52%),linear-gradient(140deg,#93A865,#5E7142);box-shadow:0 12px 22px rgba(78,93,45,.22);transform:rotate(30deg);--r:30deg;animation:sway 7s ease-in-out infinite;}
-.l-hero-2{z-index:1;top:0;right:18%;width:62px;height:36px;box-shadow:0 10px 18px rgba(78,93,45,.18);transform:rotate(-50deg);--r:-50deg;animation:sway 9s ease-in-out infinite;}
+.l-hero-1{z-index:3;bottom:2%;right:8%;width:62px;height:70px;transform:rotate(30deg);--r:30deg;animation:sway 7s ease-in-out infinite;}
+.l-hero-2{z-index:1;top:0;right:18%;width:50px;height:58px;transform:rotate(-50deg);--r:-50deg;animation:sway 9s ease-in-out infinite;}
 /* about decor */
-.l-about{top:40px;left:5%;width:120px;height:70px;opacity:.18;transform:rotate(-30deg);}
+.l-about{top:40px;left:5%;width:90px;height:104px;opacity:.22;transform:rotate(-30deg);}
 .o-about{bottom:-14px;right:6%;width:70px;height:70px;box-shadow:inset 0 0 0 4px #E2842F,inset 0 0 0 6px #FBEAC8,0 14px 26px rgba(200,110,40,.2);}
 /* directions decor */
 .o-dir{top:60px;right:4%;width:80px;height:80px;opacity:.5;box-shadow:inset 0 0 0 4px #E2842F,inset 0 0 0 6px #FBEAC8;}
-.card-leaf{bottom:-20px;right:-16px;width:64px;height:38px;opacity:.16;transform:rotate(20deg);}
+.card-leaf{bottom:-16px;right:-10px;width:48px;height:56px;opacity:.2;transform:rotate(20deg);}
 .sp-corner{right:-34px;bottom:-34px;width:108px;height:108px;box-shadow:inset 0 0 0 4px #E2842F,inset 0 0 0 6px #FBEAC8;}
 /* reviews decor */
 .a-rev{top:-40px;left:-40px;width:240px;height:240px;background:radial-gradient(circle,rgba(246,221,160,.5),rgba(243,231,210,0) 70%);}
 .o-rev{top:-26px;right:-22px;width:90px;height:90px;opacity:.4;box-shadow:inset 0 0 0 5px #E2842F,inset 0 0 0 8px #FBEAC8;}
 /* cta decor */
 .cta-fig{position:absolute;height:92%;left:2%;bottom:-6%;opacity:.12;filter:sepia(.3) saturate(.7);mix-blend-mode:multiply;pointer-events:none;z-index:0;}
-.l-cta{top:30px;right:8%;width:96px;height:56px;opacity:.22;transform:rotate(28deg);}
+.l-cta{top:24px;right:7%;width:72px;height:84px;opacity:.28;transform:rotate(28deg);}
 .o-cta{bottom:40px;right:5%;width:70px;height:70px;opacity:.45;box-shadow:inset 0 0 0 4px #E2842F,inset 0 0 0 6px #FBEAC8;}
 .footer .leaf-mark{width:24px;height:14px;background:linear-gradient(140deg,#A6B878,#6E7F4E);}
 
@@ -200,6 +200,15 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
   .sp-corner{width:82px;height:82px;right:-26px;bottom:-26px;} /* апельсин меньше, не налезает */
   .cta-fig{height:50%;left:-3%;bottom:6%;} /* силуэт меньше и сбоку слева, чтобы не вылезал за края */
 }
+
+/* разные листики */
+.l-hero-1{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2064%2070%27%3E%3Cpath%20d%3D%27M32%203%20C50%2016%2054%2044%2032%2067%20C10%2044%2014%2016%2032%203%20Z%27%20fill%3D%27%235E7142%27%2F%3E%3Cpath%20d%3D%27M32%209%20C32%2028%2032%2046%2032%2062%27%20stroke%3D%27%23FBF5EA%27%20stroke-width%3D%272.4%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%2F%3E%3Cpath%20d%3D%27M32%2022%20L21%2017%20M32%2022%20L43%2017%20M32%2033%20L19%2029%20M32%2033%20L45%2029%20M32%2044%20L22%2041%20M32%2044%20L42%2041%27%20stroke%3D%27%23FBF5EA%27%20stroke-width%3D%271.5%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E");}
+.l-hero-2{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2064%2070%27%3E%3Cpath%20d%3D%27M30%204%20C54%2018%2052%2048%2030%2066%20C14%2048%2012%2018%2030%204%20Z%27%20fill%3D%27%235E7142%27%2F%3E%3Cpath%20d%3D%27M30%2010%20C26%2028%2028%2048%2033%2060%27%20stroke%3D%27%23FBF5EA%27%20stroke-width%3D%272.4%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E");}
+.l-about{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2064%2070%27%3E%3Cpath%20d%3D%27M32%204%20C52%2014%2056%2042%2032%2066%20C8%2042%2012%2014%2032%204%20Z%27%20fill%3D%27%236E8049%27%2F%3E%3Cpath%20d%3D%27M32%208%20L32%2060%27%20stroke%3D%27%23FBF5EA%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E");}
+.l-cta{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2050%2080%27%3E%3Cpath%20d%3D%27M25%203%20C40%2024%2040%2056%2025%2077%20C10%2056%2010%2024%2025%203%20Z%27%20fill%3D%27%236E8049%27%2F%3E%3Cpath%20d%3D%27M25%208%20C25%2030%2025%2054%2025%2072%27%20stroke%3D%27%23FBF5EA%27%20stroke-width%3D%272%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E");}
+.dir-card:nth-of-type(1) .card-leaf{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2064%2070%27%3E%3Cpath%20d%3D%27M32%204%20C50%2016%2054%2044%2032%2067%20C10%2044%2014%2016%2032%204%20Z%27%20fill%3D%27%235E7142%27%2F%3E%3Cpath%20d%3D%27M24%2018%20C30%2030%2030%2046%2026%2058%20M40%2018%20C34%2030%2034%2046%2038%2058%27%20stroke%3D%27%23FBF5EA%27%20stroke-width%3D%272%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E");}
+.dir-card:nth-of-type(2) .card-leaf{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2064%2070%27%3E%3Cpath%20d%3D%27M32%203%20C50%2016%2054%2044%2032%2067%20C10%2044%2014%2016%2032%203%20Z%27%20fill%3D%27%235E7142%27%2F%3E%3Cpath%20d%3D%27M32%209%20C32%2028%2032%2046%2032%2062%27%20stroke%3D%27%23FBF5EA%27%20stroke-width%3D%272.4%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%2F%3E%3Cpath%20d%3D%27M32%2022%20L21%2017%20M32%2022%20L43%2017%20M32%2033%20L19%2029%20M32%2033%20L45%2029%20M32%2044%20L22%2041%20M32%2044%20L42%2041%27%20stroke%3D%27%23FBF5EA%27%20stroke-width%3D%271.5%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E");}
+.dir-card:nth-of-type(3) .card-leaf{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2050%2080%27%3E%3Cpath%20d%3D%27M25%203%20C40%2024%2040%2056%2025%2077%20C10%2056%2010%2024%2025%203%20Z%27%20fill%3D%27%236E8049%27%2F%3E%3Cpath%20d%3D%27M25%208%20C25%2030%2025%2054%2025%2072%27%20stroke%3D%27%23FBF5EA%27%20stroke-width%3D%272%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E");}
 </style>
 </head>
 <body>
@@ -258,9 +267,10 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
         <div class="eyebrow"><i></i>обо мне</div>
         <h2>6 лет в медицине</h2>
         <div class="about-p">
-          <p>Здравствуйте, меня зовут Екатерина. Я нутрициолог и дипломированный врач-педиатр. Я знаю, как ухаживать и общаться с пациентами и нести ответственность за правильно выполненные назначения.</p>
-          <p>В работе опираюсь лишь на принципы доказательной медицины и клинические рекомендации. Использую комплексный подход и индивидуальный рацион — для снижения веса или набора мышечной массы, коррекции образа жизни и снижения рисков заболеваний.</p>
-          <p>Педиатрическая подготовка помогает мне максимально безопасно и эффективно работать с растущим организмом. Я даю вам поддержку и инструменты, чтобы результат оставался с вами надолго.</p>
+          <p>Меня зовут Екатерина! Я нутрициолог и дипломированный врач-педиатр. В медицине работаю 6 лет.</p>
+          <p>На основании знаний и опыта понимаю, что за спиной многих заболеваний стоит нерациональное питание, нарушение сна, снижение двигательной активности, стрессы и вредные привычки.</p>
+          <p>Поэтому я приняла решение: хочу помогать людям предотвращать болезни, а не бороться с их последствиями — ведь профилактика экономит массу времени и денег на лечение! В своей работе опираюсь на принципы доказательной медицины и клинические рекомендации.</p>
+          <p>Я работаю с каждым из вас: помогаю выработать новые привычки, которые приведут к желаемым результатам!</p>
         </div>
         <div class="tags">
           <span class="tag terra">доказательная медицина</span>
