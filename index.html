@@ -99,6 +99,11 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
 .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
 .tag{padding:9px 16px;border-radius:100px;background:var(--bg);border:1px solid rgba(45,42,32,.08);font-size:13.5px;font-weight:600;color:var(--olive);}
 .tag.terra{color:var(--terra);}
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;}
+.cert{display:block;background:var(--card);border:1px solid rgba(45,42,32,.08);border-radius:18px;padding:12px;box-shadow:0 14px 32px rgba(120,90,50,.08);overflow:hidden;transition:transform .25s,box-shadow .25s;}
+.cert:hover{transform:translateY(-4px);box-shadow:0 22px 44px rgba(120,90,50,.14);}
+.cert img{width:100%;height:auto;display:block;border-radius:12px;}
+.cert span{display:block;text-align:center;font-size:12.5px;color:var(--muted2);margin-top:10px;}
 
 /* ============================================================
    НАПРАВЛЕНИЯ
@@ -283,6 +288,30 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
           <span class="tag">индивидуальный рацион</span>
           <span class="tag">комплексный подход</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ОБРАЗОВАНИЕ ===== -->
+  <section id="certs" class="section">
+    <div class="wrap">
+      <div class="head-center">
+        <div class="eyebrow"><i></i>образование<i></i></div>
+        <h2 class="sec-title">Дипломы и сертификаты</h2>
+      </div>
+      <div class="certs">
+        <a class="cert" href="sert1.jpeg" target="_blank" rel="noopener">
+          <img src="sert1.jpeg" alt="Диплом специалиста — врач-педиатр">
+          <span>Диплом специалиста · врач-педиатр</span>
+        </a>
+        <a class="cert" href="sert2.jpeg" target="_blank" rel="noopener">
+          <img src="sert2.jpeg" alt="Диплом о профессиональной переподготовке — нутрициология">
+          <span>Переподготовка · основы нутрициологии</span>
+        </a>
+        <a class="cert" href="sert3.jpeg" target="_blank" rel="noopener">
+          <img src="sert3.jpeg" alt="Удостоверение о повышении квалификации">
+          <span>Повышение квалификации · биохимия и физиология</span>
+        </a>
       </div>
     </div>
   </section>
