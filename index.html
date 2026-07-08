@@ -578,25 +578,40 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
   (function(){
     var certs=document.querySelector('.certs');
     if(!certs) return;
-    var timer=null, resume=null;
-    function isCar(){ return certs.scrollWidth > certs.clientWidth + 5; }
-    function advance(){
-      if(!isCar()) return;
-      var first=certs.firstElementChild; if(!first) return;
-      var step=first.getBoundingClientRect().width + 14;
-      if(certs.scrollLeft + certs.clientWidth >= certs.scrollWidth - 8){
-        certs.scrollTo({left:0, behavior:'smooth'});   // после последнего — снова первый
-      }else{
-        certs.scrollBy({left:step, behavior:'smooth'});
-      }
+    var mq=window.matchMedia('(max-width:600px)');
+    var original=certs.innerHTML;
+    var W=0, on=false, ticking=false;
+    function wrap(){
+      if(!on||!W) return;
+      var x=certs.scrollLeft;
+      if(x < W*0.5){ certs.scrollLeft = x + W; }
+      else if(x > W*1.5){ certs.scrollLeft = x - W; }
     }
-    function start(){ if(!timer && isCar()) timer=setInterval(advance,3200); }
-    function stop(){ clearInterval(timer); timer=null; }
-    certs.addEventListener('touchstart',function(){ stop(); clearTimeout(resume); resume=setTimeout(start,5000); },{passive:true});
-    certs.addEventListener('mouseenter',stop);
-    certs.addEventListener('mouseleave',start);
-    window.addEventListener('load',start);
-    start();
+    function onScroll(){
+      if(ticking) return; ticking=true;
+      requestAnimationFrame(function(){ wrap(); ticking=false; });
+    }
+    function measure(){ W=certs.scrollWidth/3; }
+    function teardown(){
+      on=false;
+      certs.removeEventListener('scroll',onScroll);
+      certs.innerHTML=original;
+      certs.scrollLeft=0;
+    }
+    function setup(){
+      teardown();
+      var kids=Array.prototype.slice.call(certs.children);
+      kids.forEach(function(c){ certs.appendChild(c.cloneNode(true)); });
+      kids.forEach(function(c){ certs.appendChild(c.cloneNode(true)); });
+      measure();
+      certs.scrollLeft=W;                 // старт в середине — бесшовно в обе стороны
+      on=true;
+      certs.addEventListener('scroll',onScroll,{passive:true});
+    }
+    function apply(){ mq.matches ? setup() : teardown(); }
+    apply();
+    if(mq.addEventListener) mq.addEventListener('change',apply); else mq.addListener(apply);
+    window.addEventListener('resize',function(){ if(on) measure(); });
   })();
 </script>
 </body>
