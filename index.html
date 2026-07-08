@@ -125,6 +125,29 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
 .price-note{margin-top:26px;padding:22px 24px;border-radius:18px;background:var(--bg2);border:1px solid rgba(45,42,32,.06);font-size:14px;line-height:1.6;color:var(--muted);}
 .price-note b{color:var(--ink);font-weight:600;}
 .price-note .hours{margin-top:10px;color:var(--olive-d);font-weight:600;}
+/* ЦЕНЫ — раскрывающиеся плашки */
+.price-acc{display:flex;flex-direction:column;gap:14px;max-width:840px;margin:0 auto;}
+.acc{background:var(--card);border:1px solid rgba(45,42,32,.06);border-radius:18px;box-shadow:0 14px 32px rgba(120,90,50,.08);overflow:hidden;transition:box-shadow .25s;}
+.acc[open]{box-shadow:0 22px 44px rgba(120,90,50,.14);}
+.acc>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;font-family:var(--serif);font-size:19px;font-weight:600;color:var(--ink);}
+.acc>summary::-webkit-details-marker{display:none;}
+.acc .right{display:inline-flex;align-items:center;gap:12px;}
+.acc .price-amount{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--orange);white-space:nowrap;}
+.acc .chev{font-size:14px;color:var(--olive);transition:transform .25s;}
+.acc[open] .chev{transform:rotate(180deg);}
+.acc-body{padding:2px 24px 22px;font-size:14px;line-height:1.6;color:#6F6650;}
+.acc-item{padding:14px 0;border-top:1px solid rgba(45,42,32,.08);}
+.acc-item:first-child{border-top:none;padding-top:4px;}
+.acc-item h4{margin:0 0 5px;font-size:15px;font-weight:600;color:var(--ink);display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;}
+.acc-item h4 .amt{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--orange);white-space:nowrap;}
+.acc-item p{margin:0;}
+.acc.free{background:linear-gradient(135deg,#EAEFDD,#F3E7D2);}
+.acc.free .price-amount{color:var(--olive-d);}
+.acc.wide{background:linear-gradient(135deg,#6E7F4E,#818456);}
+.acc.wide>summary{color:#F8F4E6;}
+.acc.wide .price-amount{color:#FFFDF6;}
+.acc.wide .chev{color:#E4E5CE;}
+.acc.wide .acc-body{color:#E4E5CE;}
 
 /* ============================================================
    НАПРАВЛЕНИЯ
@@ -389,63 +412,44 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
         <div class="eyebrow"><i></i>стоимость<i></i></div>
         <h2 class="sec-title">Прайс</h2>
       </div>
-      <div class="price-grid">
+      <div class="price-acc">
 
-        <div class="price-card free">
-          <span class="price-tag">первая встреча</span>
-          <h3>Знакомство</h3>
-          <div class="price-meta"><span class="price-amount">Бесплатно</span><span class="price-dur">· 30 мин</span></div>
-          <p>Знакомство, определение ваших целей, общие рекомендации.</p>
-        </div>
+        <details class="acc free">
+          <summary><span>Первая консультация</span><span class="right"><span class="price-amount">Бесплатно</span><span class="chev">⌄</span></span></summary>
+          <div class="acc-body"><div class="acc-item"><h4><span>Знакомство</span><span class="amt">30 мин</span></h4><p>Знакомство, определение ваших целей, общие рекомендации.</p></div></div>
+        </details>
 
-        <div class="price-card">
-          <h3>Базовая консультация</h3>
-          <div class="price-meta"><span class="price-amount">2500&nbsp;₽</span><span class="price-dur">· 60 мин</span></div>
-          <p>Анализ вашего питания, анализ образа жизни, обучение принципам рационального питания, рекомендации по коррекции питания и образа жизни.</p>
-        </div>
+        <details class="acc">
+          <summary><span>Базовая консультация</span><span class="right"><span class="price-amount">2500&nbsp;₽</span><span class="chev">⌄</span></span></summary>
+          <div class="acc-body"><div class="acc-item"><h4><span>Базовая консультация</span><span class="amt">2500&nbsp;₽ · 60 мин</span></h4><p>Анализ вашего питания, анализ образа жизни, обучение принципам рационального питания, рекомендации по коррекции питания и образа жизни.</p></div></div>
+        </details>
 
-        <div class="price-card">
-          <h3>Беременные женщины</h3>
-          <div class="price-meta"><span class="price-amount">3000&nbsp;₽</span><span class="price-dur">· 60 мин</span></div>
-          <p>Анализ пищевых привычек, разбор вашего рациона в зависимости от триместра беременности, обучение принципам рационального питания, рекомендации по коррекции питания и образа жизни.</p>
-        </div>
+        <details class="acc">
+          <summary><span>Беременные и кормящие</span><span class="right"><span class="price-amount">3000&nbsp;₽</span><span class="chev">⌄</span></span></summary>
+          <div class="acc-body">
+            <div class="acc-item"><h4><span>Беременные женщины</span><span class="amt">3000&nbsp;₽ · 60 мин</span></h4><p>Анализ пищевых привычек, разбор вашего рациона в зависимости от триместра беременности, обучение принципам рационального питания, рекомендации по коррекции питания и образа жизни.</p></div>
+            <div class="acc-item"><h4><span>Кормящие женщины</span><span class="amt">3000&nbsp;₽ · 60 мин</span></h4><p>Анализ пищевых привычек, разбор вашего рациона питания, разбор пользы грудного вскармливания для вас и ребёнка, обучение принципам рационального питания для улучшения качественного состава грудного молока, рекомендации по коррекции питания и образа жизни.</p></div>
+          </div>
+        </details>
 
-        <div class="price-card">
-          <h3>Кормящие женщины</h3>
-          <div class="price-meta"><span class="price-amount">3000&nbsp;₽</span><span class="price-dur">· 60 мин</span></div>
-          <p>Анализ пищевых привычек, разбор вашего рациона питания, разбор пользы грудного вскармливания для вас и ребёнка, обучение принципам рационального питания для улучшения качественного состава грудного молока, рекомендации по коррекции питания и образа жизни.</p>
-        </div>
+        <details class="acc">
+          <summary><span>Дети</span><span class="right"><span class="price-amount">от 2500&nbsp;₽</span><span class="chev">⌄</span></span></summary>
+          <div class="acc-body">
+            <div class="acc-item"><h4><span>Дети до 1 года</span><span class="amt">2700&nbsp;₽ · 60 мин</span></h4><p>Разбор рациона питания ребёнка, принципы пользы грудного вскармливания, обучение правилам кормления и приготовления молочных смесей, коррекция питания и образа жизни.</p></div>
+            <div class="acc-item"><h4><span>Дети от 1–3 лет</span><span class="amt">2700&nbsp;₽ · 60 мин</span></h4><p>Разбор рациона питания ребёнка, принципы питания детей от 1–3 лет, коррекция питания и образа жизни с учётом возрастных особенностей.</p></div>
+            <div class="acc-item"><h4><span>Дети до 18 лет</span><span class="amt">2500&nbsp;₽ · 60 мин</span></h4><p>Разбор рациона питания ребёнка, анализ образа жизни, обучение принципам рационального питания, рекомендации по коррекции питания и образа жизни с учётом возрастных особенностей.</p></div>
+          </div>
+        </details>
 
-        <div class="price-card">
-          <h3>Питание старшего возраста</h3>
-          <div class="price-meta"><span class="price-amount">2500&nbsp;₽</span><span class="price-dur">· 60 мин</span></div>
-          <p>Анализ вашего питания, анализ образа жизни, обучение основным изменениям гормональной системы с возрастом и её влиянию на организм, обучение принципам рационального питания, рекомендации по коррекции питания и образа жизни.</p>
-        </div>
+        <details class="acc">
+          <summary><span>Питание старшего возраста</span><span class="right"><span class="price-amount">2500&nbsp;₽</span><span class="chev">⌄</span></span></summary>
+          <div class="acc-body"><div class="acc-item"><h4><span>Питание людей старшего возраста</span><span class="amt">2500&nbsp;₽ · 60 мин</span></h4><p>Анализ вашего питания, анализ образа жизни, обучение основным изменениям гормональной системы с возрастом и её влиянию на организм, обучение принципам рационального питания, рекомендации по коррекции питания и образа жизни.</p></div></div>
+        </details>
 
-        <div class="price-card">
-          <h3>Дети до 1 года</h3>
-          <div class="price-meta"><span class="price-amount">2700&nbsp;₽</span><span class="price-dur">· 60 мин</span></div>
-          <p>Разбор рациона питания ребёнка, принципы пользы грудного вскармливания, обучение правилам кормления и приготовления молочных смесей, коррекция питания и образа жизни.</p>
-        </div>
-
-        <div class="price-card">
-          <h3>Дети 1–3 года</h3>
-          <div class="price-meta"><span class="price-amount">2700&nbsp;₽</span><span class="price-dur">· 60 мин</span></div>
-          <p>Разбор рациона питания ребёнка, принципы питания детей от 1–3 лет, коррекция питания и образа жизни с учётом возрастных особенностей.</p>
-        </div>
-
-        <div class="price-card">
-          <h3>Дети до 18 лет</h3>
-          <div class="price-meta"><span class="price-amount">2500&nbsp;₽</span><span class="price-dur">· 60 мин</span></div>
-          <p>Разбор рациона питания ребёнка, анализ образа жизни, обучение принципам рационального питания, рекомендации по коррекции питания и образа жизни с учётом возрастных особенностей.</p>
-        </div>
-
-        <div class="price-card wide">
-          <span class="price-tag">сопровождение · 7 дней</span>
-          <h3>Расширенная консультация</h3>
-          <div class="price-meta"><span class="price-amount">8000&nbsp;₽</span><span class="price-dur">· на связи 7 дней</span></div>
-          <p>Я с вами на связи в течение 7 дней: определяем цели, составляем индивидуальный план, корректируем рацион питания и образ жизни, я поддерживаю и мотивирую вас в персональном чате.</p>
-        </div>
+        <details class="acc wide">
+          <summary><span>Расширенная консультация</span><span class="right"><span class="price-amount">8000&nbsp;₽</span><span class="chev">⌄</span></span></summary>
+          <div class="acc-body"><div class="acc-item"><h4><span>Сопровождение 7 дней</span><span class="amt">8000&nbsp;₽</span></h4><p>Я с вами на связи в течение 7 дней: определяем цели, составляем индивидуальный план, корректируем рацион питания и образ жизни, я поддерживаю и мотивирую вас в персональном чате.</p></div></div>
+        </details>
 
       </div>
 
