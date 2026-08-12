@@ -165,172 +165,86 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
 .special-art{flex:0 0 auto;position:relative;width:200px;height:160px;}
 
 /* ============================================================
-   ОТЗЫВЫ
+   ОТЗЫВЫ — компактный дизайн
    ============================================================ */
-/* ============================================================
-   ОТЗЫВЫ — новый дизайн с фотографиями
-   ============================================================ */
-.rev-stage {
-  max-width: 980px;
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 780px;
   margin: 0 auto;
-  position: relative;
 }
 
-.rev-mask {
-  overflow: hidden;
-  border-radius: 30px;
-}
-
-.rev-track {
-  display: flex;
-  transition: transform .55s cubic-bezier(.4, 0, .2, 1);
-}
-
-.rev-slide {
-  flex: 0 0 100%;
-  padding: clamp(6px, 2vw, 18px);
-}
-
-.rev-card {
+.review-item {
   background: var(--card);
   border: 1px solid rgba(45, 42, 32, .06);
-  border-radius: 26px;
-  padding: 20px;
-  box-shadow: 0 22px 50px rgba(120, 90, 50, .1);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 12px 30px rgba(120, 90, 50, .08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
 }
 
-.rev-card:hover {
+.review-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 30px 60px rgba(120, 90, 50, .15);
+  box-shadow: 0 20px 40px rgba(120, 90, 50, .14);
 }
 
-.rev-card .review-image {
-  border-radius: 18px;
+.review-photo {
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(120, 90, 50, 0.12);
+  background: #EFE0C4;
 }
 
-.rev-card .review-image img {
+.review-photo img {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease;
 }
 
-.rev-card:hover .review-image img {
+.review-item:hover .review-photo img {
   transform: scale(1.02);
 }
 
-.rev-card .review-footer {
-  margin-top: 16px;
+.review-info {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 14px;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-.rev-card .review-footer .stars {
+.review-stars {
   color: #F0A93D;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 2px;
 }
 
-.rev-card .review-footer .review-label {
-  font-size: 12px;
+.review-badge {
+  font-size: 11px;
   color: var(--muted2);
   font-weight: 500;
   letter-spacing: 0.05em;
   background: var(--bg2);
-  padding: 4px 14px;
+  padding: 3px 14px;
   border-radius: 100px;
 }
 
-.rev-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  margin-top: 30px;
+/* Если отзывов больше 2 — центрируем */
+@media (min-width: 600px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.arrow {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 1px solid rgba(45, 42, 32, .12);
-  background: var(--card);
-  color: #3A352A;
-  font-size: 22px;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(120, 90, 50, .08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease, transform 0.2s ease;
+@media (max-width: 599px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
 }
 
-.arrow:hover {
-  background: var(--orange);
-  color: #FFF8EC;
-  transform: scale(1.05);
-}
-
-.arrow:active {
-  transform: scale(0.95);
-}
-
-.dots {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-
-.dots button {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  transition: background .3s, width .3s, border-radius .3s;
-  background: #D9C9AC;
-}
-
-.dots button.active {
-  background: var(--orange);
-  width: 24px;
-  border-radius: 5px;
-}
-
-/* decor */
-.a-rev {
-  top: -40px;
-  left: -40px;
-  width: 240px;
-  height: 240px;
-  background: radial-gradient(circle, rgba(246, 221, 160, .5), rgba(243, 231, 210, 0) 70%);
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.o-rev {
-  top: -26px;
-  right: -22px;
-  width: 90px;
-  height: 90px;
-  opacity: .4;
-  box-shadow: inset 0 0 0 5px #E2842F, inset 0 0 0 8px #FBEAC8;
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 50%, #FCE7B6 0 16%, transparent 16.5%), repeating-conic-gradient(from 7deg at 50% 50%, #FFF6E2 0deg 1.2deg, #F4B05A 1.2deg 28.8deg, #FFF6E2 28.8deg 30deg), #F2A748;
-  pointer-events: none;
-}
 /* ============================================================
    ОБРАЩЕНИЕ
    ============================================================ */
@@ -608,52 +522,36 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;}
     </div>
   </section>
 
-  <!-- ===== ОТЗЫВЫ ===== -->
-  <!-- ===== ОТЗЫВЫ ===== -->
+   <!-- ===== ОТЗЫВЫ ===== -->
 <section id="reviews" class="section bg2">
-  <span class="amb a-rev"></span>
-  <div class="rev-stage">
+  <div class="wrap">
     <div class="head-center">
       <div class="eyebrow"><i></i>отзывы<i></i></div>
       <h2 class="sec-title">Что говорят клиенты</h2>
     </div>
-    <div class="rev-mask">
-      <div class="rev-track" id="revTrack">
 
-        <!-- Отзыв 1 -->
-        <div class="rev-slide">
-          <div class="rev-card">
-            <span class="orange o-rev"></span>
-            <div class="review-image">
-              <img src="rev1.jpg" alt="Отзыв клиента">
-            </div>
-            <div class="review-footer">
-              <span class="stars">★★★★★</span>
-              <span class="review-label">отзыв клиента</span>
-            </div>
-          </div>
+    <div class="reviews-grid">
+      <!-- Отзыв 1 -->
+      <div class="review-item">
+        <div class="review-photo">
+          <img src="rev1.jpg" alt="Отзыв клиента">
         </div>
-
-        <!-- Отзыв 2 -->
-        <div class="rev-slide">
-          <div class="rev-card">
-            <span class="orange o-rev"></span>
-            <div class="review-image">
-              <img src="rev2.jpg" alt="Отзыв клиента">
-            </div>
-            <div class="review-footer">
-              <span class="stars">★★★★★</span>
-              <span class="review-label">отзыв клиента</span>
-            </div>
-          </div>
+        <div class="review-info">
+          <span class="review-stars">★★★★★</span>
+          <span class="review-badge">отзыв клиента</span>
         </div>
-
       </div>
-    </div>
-    <div class="rev-nav">
-      <button class="arrow" id="revPrev" aria-label="Назад">‹</button>
-      <div class="dots" id="revDots"></div>
-      <button class="arrow" id="revNext" aria-label="Вперёд">›</button>
+
+      <!-- Отзыв 2 -->
+      <div class="review-item">
+        <div class="review-photo">
+          <img src="rev2.jpg" alt="Отзыв клиента">
+        </div>
+        <div class="review-info">
+          <span class="review-stars">★★★★★</span>
+          <span class="review-badge">отзыв клиента</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
